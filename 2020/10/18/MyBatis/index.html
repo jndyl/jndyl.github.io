@@ -6,17 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>我的第一篇博客文章 | wrh BLOG</title>
+  <title>MyBatis | wrh BLOG</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="第一章内容  第二章内容  参考文献www.codesheep.cn">
+  <meta name="description" content="一、什么是MyBatisMyBatis 是一款优秀的持久层框架，它支持自定义 SQL、存储过程以及高级映射。MyBatis 免除了几乎所有的 JDBC 代码以及设置参数和获取结果集的工作。MyBatis 可以通过简单的 XML 或注解来配置和映射原始类型、接口和 Java POJO（Plain Old Java Objects，普通老式 Java 对象）为数据库中的记录。  二、创建Maven项目">
 <meta property="og:type" content="article">
-<meta property="og:title" content="我的第一篇博客文章">
-<meta property="og:url" content="http://example.com/2020/10/18/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/index.html">
+<meta property="og:title" content="MyBatis">
+<meta property="og:url" content="http://example.com/2020/10/18/MyBatis/index.html">
 <meta property="og:site_name" content="wrh BLOG">
-<meta property="og:description" content="第一章内容  第二章内容  参考文献www.codesheep.cn">
+<meta property="og:description" content="一、什么是MyBatisMyBatis 是一款优秀的持久层框架，它支持自定义 SQL、存储过程以及高级映射。MyBatis 免除了几乎所有的 JDBC 代码以及设置参数和获取结果集的工作。MyBatis 可以通过简单的 XML 或注解来配置和映射原始类型、接口和 Java POJO（Plain Old Java Objects，普通老式 Java 对象）为数据库中的记录。  二、创建Maven项目">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-10-18T02:00:12.000Z">
-<meta property="article:modified_time" content="2020-10-18T02:33:26.564Z">
+<meta property="article:modified_time" content="2020-10-18T08:42:24.939Z">
 <meta property="article:author" content="江南第一浪">
 <meta name="twitter:card" content="summary">
   
@@ -154,19 +154,19 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-我的第一篇博客文章" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-MyBatis" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      我的第一篇博客文章
+      MyBatis
     </h1>
   
 
         
-        <a href="/2020/10/18/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/" class="archive-article-date">
+        <a href="/2020/10/18/MyBatis/" class="archive-article-date">
   	<time datetime="2020-10-18T02:00:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-18</time>
 </a>
         
@@ -174,10 +174,14 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h2><p>内容</p>
+        <h2 id="一、什么是MyBatis"><a href="#一、什么是MyBatis" class="headerlink" title="一、什么是MyBatis"></a>一、什么是MyBatis</h2><p>MyBatis 是一款优秀的持久层框架，它支持自定义 SQL、存储过程以及高级映射。<br>MyBatis 免除了几乎所有的 JDBC 代码以及设置参数和获取结果集的工作。<br>MyBatis 可以通过简单的 XML 或注解来配置和映射原始类型、接口和 Java POJO（Plain Old Java Objects，普通老式 Java 对象）为数据库中的记录。</p>
 <hr>
-<h2 id="第二章"><a href="#第二章" class="headerlink" title="第二章"></a>第二章</h2><p>内容</p>
+<h2 id="二、创建Maven项目"><a href="#二、创建Maven项目" class="headerlink" title="二、创建Maven项目"></a>二、创建Maven项目</h2><p>1.使用 Maven 来构建项目，则需将下面的依赖代码置于 pom.xml 文件中：<br>&lt;dependency&gt;<br>  &lt;groupId&gt;org.mybatis</groupId><br>  &lt;artifactId&gt;mybatis</artifactId><br>  &lt;version&gt;x.x.x</version><br>&lt;/dependency&gt;</p>
+<p>2.删除src，将创建的Maven作为父工程</p>
+<p>3.在pom.xml中导入依赖(版本号仅供参考)<br>&lt;dependencies&gt;<br>        &lt;!–    mysql驱动    –&gt;<br>        &lt;dependency&gt;<br>            &lt;groupId&gt;mysql</groupId><br>            &lt;artifactId&gt;mysql-connector-java</artifactId><br>            &lt;version&gt;5.1.47</version><br>        &lt;/dependency&gt;<br>        &lt;!–    mybatis    –&gt;<br>        &lt;dependency&gt;<br>            &lt;groupId&gt;org.mybatis</groupId><br>            &lt;artifactId&gt;mybatis</artifactId><br>            &lt;version&gt;3.5.2</version><br>        &lt;/dependency&gt;<br>        &lt;!–    junit    –&gt;<br>        &lt;dependency&gt;<br>            &lt;groupId&gt;junit</groupId><br>            &lt;artifactId&gt;junit</artifactId><br>            &lt;version&gt;4.12</version><br>        &lt;/dependency&gt;<br>    &lt;/dependencies&gt;</p>
+<p>4.引入资源路文件的配置<br>&lt;build&gt;<br>        &lt;resources&gt;<br>            &lt;resource&gt;<br>                &lt;directory&gt;src/main/resources</directory><br>                &lt;includes&gt;<br>                    &lt;include&gt;<strong>/<em>.properties</include><br>                    &lt;include&gt;**/</em>.xml</include><br>                &lt;/includes&gt;<br>                &lt;filtering&gt;true</filtering><br>            &lt;/resource&gt;<br>            &lt;resource&gt;<br>                &lt;directory&gt;src/main/java</directory><br>                &lt;includes&gt;<br>                    &lt;include&gt;</strong>/<em>.properties</include><br>                    &lt;include&gt;**/</em>.xml</include><br>                &lt;/includes&gt;<br>                &lt;filtering&gt;true</filtering><br>            &lt;/resource&gt;<br>        &lt;/resources&gt;<br>    &lt;/build&gt;</p>
 <hr>
+<h2 id="三、创建Maven子工程"><a href="#三、创建Maven子工程" class="headerlink" title="三、创建Maven子工程"></a>三、创建Maven子工程</h2><hr>
 <h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p><a target="_blank" rel="noopener" href="http://www.codesheep.cn/">www.codesheep.cn</a></p>
 
       
@@ -268,7 +272,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2020/10/18/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2020/10/18/MyBatis/" alt="微信分享二维码">
     </div>
 </div>
 
