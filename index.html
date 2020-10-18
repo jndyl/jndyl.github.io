@@ -55,7 +55,7 @@
 			
 				<li><a href="/">主页</a></li>
 	        
-				<li><a href="/tags/%E9%9A%8F%E7%AC%94/">随笔</a></li>
+				<li><a href="/">随笔</a></li>
 	        
 			</ul>
 		</nav>
@@ -135,7 +135,7 @@
 				
 					<li style="width: 50%"><a href="/">主页</a></li>
 		        
-					<li style="width: 50%"><a href="/tags/%E9%9A%8F%E7%AC%94/">随笔</a></li>
+					<li style="width: 50%"><a href="/">随笔</a></li>
 		        
 				</ul>
 			</nav>
@@ -165,7 +165,7 @@
 
         
         <a href="/2020/10/18/MyBatis/" class="archive-article-date">
-  	<time datetime="2020-10-18T02:00:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-18</time>
+  	<time datetime="2020-10-18T13:32:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-18</time>
 </a>
         
       </header>
@@ -174,13 +174,14 @@
       
         <h2 id="一、什么是MyBatis"><a href="#一、什么是MyBatis" class="headerlink" title="一、什么是MyBatis"></a>一、什么是MyBatis</h2><p>MyBatis 是一款优秀的持久层框架，它支持自定义 SQL、存储过程以及高级映射。<br>MyBatis 免除了几乎所有的 JDBC 代码以及设置参数和获取结果集的工作。<br>MyBatis 可以通过简单的 XML 或注解来配置和映射原始类型、接口和 Java POJO（Plain Old Java Objects，普通老式 Java 对象）为数据库中的记录。</p>
 <hr>
-<h2 id="二、创建Maven项目"><a href="#二、创建Maven项目" class="headerlink" title="二、创建Maven项目"></a>二、创建Maven项目</h2><p>1.使用 Maven 来构建项目，则需将下面的依赖代码置于 pom.xml 文件中：<br>&lt;dependency&gt;<br>  &lt;groupId&gt;org.mybatis</groupId><br>  &lt;artifactId&gt;mybatis</artifactId><br>  &lt;version&gt;x.x.x</version><br>&lt;/dependency&gt;</p>
-<p>2.删除src，将创建的Maven作为父工程</p>
-<p>3.在pom.xml中导入依赖(版本号仅供参考)<br>&lt;dependencies&gt;<br>        &lt;!–    mysql驱动    –&gt;<br>        &lt;dependency&gt;<br>            &lt;groupId&gt;mysql</groupId><br>            &lt;artifactId&gt;mysql-connector-java</artifactId><br>            &lt;version&gt;5.1.47</version><br>        &lt;/dependency&gt;<br>        &lt;!–    mybatis    –&gt;<br>        &lt;dependency&gt;<br>            &lt;groupId&gt;org.mybatis</groupId><br>            &lt;artifactId&gt;mybatis</artifactId><br>            &lt;version&gt;3.5.2</version><br>        &lt;/dependency&gt;<br>        &lt;!–    junit    –&gt;<br>        &lt;dependency&gt;<br>            &lt;groupId&gt;junit</groupId><br>            &lt;artifactId&gt;junit</artifactId><br>            &lt;version&gt;4.12</version><br>        &lt;/dependency&gt;<br>    &lt;/dependencies&gt;</p>
-<p>4.引入资源路文件的配置<br>&lt;build&gt;<br>        &lt;resources&gt;<br>            &lt;resource&gt;<br>                &lt;directory&gt;src/main/resources</directory><br>                &lt;includes&gt;<br>                    &lt;include&gt;<strong>/<em>.properties</include><br>                    &lt;include&gt;**/</em>.xml</include><br>                &lt;/includes&gt;<br>                &lt;filtering&gt;true</filtering><br>            &lt;/resource&gt;<br>            &lt;resource&gt;<br>                &lt;directory&gt;src/main/java</directory><br>                &lt;includes&gt;<br>                    &lt;include&gt;</strong>/<em>.properties</include><br>                    &lt;include&gt;**/</em>.xml</include><br>                &lt;/includes&gt;<br>                &lt;filtering&gt;true</filtering><br>            &lt;/resource&gt;<br>        &lt;/resources&gt;<br>    &lt;/build&gt;</p>
+<h2 id="二、安装"><a href="#二、安装" class="headerlink" title="二、安装"></a>二、安装</h2><p>1.如果使用 Maven 来构建项目，则需将下面的依赖代码置于 pom.xml 文件中：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">  &lt;groupId&gt;org.mybatis&lt;/groupId&gt;</span><br><span class="line">  &lt;artifactId&gt;mybatis&lt;/artifactId&gt;</span><br><span class="line">  &lt;version&gt;x.x.x&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+
+<p>2.在pom.xml文件中导入相关依赖(版本号仅供参考)：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependencies&gt;</span><br><span class="line">    &lt;!--    mysql驱动    --&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;mysql&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;</span><br><span class="line">        &lt;version&gt;5.1.47&lt;/version&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">    &lt;!--    mybatis    --&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;org.mybatis&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;mybatis&lt;/artifactId&gt;</span><br><span class="line">        &lt;version&gt;3.5.2&lt;/version&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">    &lt;!--    junit    --&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;junit&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;junit&lt;/artifactId&gt;</span><br><span class="line">        &lt;version&gt;4.12&lt;/version&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">&lt;/dependencies&gt;</span><br></pre></td></tr></table></figure>
+
+
 <hr>
-<h2 id="三、创建Maven子工程"><a href="#三、创建Maven子工程" class="headerlink" title="三、创建Maven子工程"></a>三、创建Maven子工程</h2><hr>
-<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p><a target="_blank" rel="noopener" href="http://www.codesheep.cn/">www.codesheep.cn</a></p>
 
       
 
@@ -194,81 +195,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2020/10/18/MyBatis/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/10/18/hello-world/">Hello World</a>
-    </h1>
-  
-
-        
-        <a href="/2020/10/18/hello-world/" class="archive-article-date">
-  	<time datetime="2020-10-18T01:55:32.614Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-18</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/10/18/hello-world/">展开全文 >></a>
         </p>
       
 
